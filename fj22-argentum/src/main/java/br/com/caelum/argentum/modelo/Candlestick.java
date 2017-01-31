@@ -5,22 +5,22 @@ import java.util.Calendar;
 
 public final class Candlestick {
 private final double abertura;
-public double getAbertura() {
+public double Abertura() {
 	return abertura;
 }
-public double getFechamento() {
+public double Fechamento() {
 	return fechamento;
 }
-public double getMinimo() {
+public double Minimo() {
 	return minimo;
 }
-public double getMaximo() {
+public double Maximo() {
 	return maximo;
 }
-public double getVolume() {
+public double Volume() {
 	return volume;
 }
-public Calendar getData() {
+public Calendar Data() {
 	return data;
 }
 private final double fechamento;
