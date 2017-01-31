@@ -1,7 +1,7 @@
 package br.com.caelum.argentum.modelo;
 
-import java.awt.List;
 import java.util.Calendar;
+import java.util.List;
 
 public class CandlestickFactory {
 	// ctrl+1 para adicionar o return automaticamente
@@ -10,6 +10,11 @@ public class CandlestickFactory {
 		double minimo = negociacoes.get(0).getPreco();
 		double volume = 0;
 
+		//digite foreach e de um ctrl + espaço para ajudar a criar o bloco abaixo
+		for (Negociacao negociacao : negociacoes){
+			volume +=negociacao.getVolume();
+		}
+		
 		if (negociacao.getPreco() > maximo) {
 			maximo = negociacao.getPreco();
 		} else if (negociacao.getPreco() < minimo) {
