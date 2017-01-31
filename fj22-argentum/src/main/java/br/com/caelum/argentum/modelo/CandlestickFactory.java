@@ -13,16 +13,17 @@ public class CandlestickFactory {
 		//digite foreach e de um ctrl + espaço para ajudar a criar o bloco abaixo
 		for (Negociacao negociacao : negociacoes){
 			volume +=negociacao.getVolume();
-		}
+		
 		
 		if (negociacao.getPreco() > maximo) {
 			maximo = negociacao.getPreco();
 		} else if (negociacao.getPreco() < minimo) {
 			minimo = negociacao.getPreco();
 		}
+		}
 
-		double abertura = negociacoes.get(0).getPreco;
-		double fechamento = negociacoes.get(negociacoes.size() - 1).getPreco;
+		double abertura = negociacoes.get(0).getPreco();
+		double fechamento = negociacoes.get(negociacoes.size() - 1).getPreco();
 		return new Candlestick(abertura, fechamento, minimo, maximo, volume, data);
 
 	}
