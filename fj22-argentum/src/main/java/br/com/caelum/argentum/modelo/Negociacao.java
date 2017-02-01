@@ -23,4 +23,8 @@ public final class Negociacao {
 	public double getVolume() {
 		return preco * quantidade;
 	}
+	public boolean isMesmoDia(Calendar dataAtual) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

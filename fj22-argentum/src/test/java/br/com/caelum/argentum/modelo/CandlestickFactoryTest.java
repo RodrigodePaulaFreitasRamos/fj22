@@ -1,5 +1,6 @@
 package br.com.caelum.argentum.modelo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -57,5 +58,34 @@ public class CandlestickFactoryTest {
 	  Assert.assertEquals(40.5, candle.Maximo(), 0.00001);
 	  Assert.assertEquals(4050.0, candle.Volume(), 0.00001);
 	}
-}
+	
+	public List <Candlestick> constroiCandles(List<Negociacao>todasNegociacoes){
+		List<Candlestick> candles = new ArrayList<Candlestick> ();
+		
+		List<Negociacao> negociacoesDoDia = new ArrayList<Negociacao> ();
+		Calendar dataAtual = todasNegociacoes.get(0).getData();
+			
+		
+		for (Negociacao negociacao : todasNegociacoes){
+			//Se não for mesmo dia, fecha candle e reinicia variaveis
+			if (!negociacao.isMesmoDia(dataAtual)){
+				Candlestick candleDoDia= constroiCandleParaData(dataAtual,
+														negociacoesDoDia);
+				candles.add(candleDoDia);
+				negociacoesDoDia=new ArrayList<Negociacao>();
+				dataAtual=negociacao.getData();
+			}
+			negociacoesDoDia.add(negociacao);
+		}
+		//adiciona ultimo candle
+				Candlestick candleDoDia = constroiCandleParaData(dataAtual,
+						negociacoesDoDia);
+				candles.add(candleDoDia);
+			
+			return candles;
+						
+	}
+		}
+	
+	
 
